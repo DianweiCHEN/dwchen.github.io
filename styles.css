@@ -7,6 +7,7 @@
   --text-muted: #9b9996;
   --accent: #e21836;
   --accent-soft: rgba(226, 24, 54, 0.15);
+  --accent-glow: rgba(226, 24, 54, 0.35);
   --border: #2a2a30;
   --radius: 12px;
   --radius-sm: 8px;
@@ -15,6 +16,7 @@
   --max-width: 780px;
   --header-h: 72px;
   --transition: 0.25s ease;
+  --transition-slow: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ---------- Reset ---------- */
@@ -28,6 +30,10 @@ body {
   color: var(--text);
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
+  cursor: url('assets/cursor.svg') 4 4, auto;
+}
+a, button, [role="button"], .nav-link, .icon-link, .tag-list li {
+  cursor: url('assets/cursor-pointer.svg') 6 2, pointer;
 }
 
 /* ---------- Layout ---------- */
@@ -66,8 +72,12 @@ body {
   color: var(--text);
   text-decoration: none;
   white-space: nowrap;
+  transition: color var(--transition), transform var(--transition-slow);
 }
-.logo:hover { color: var(--accent); }
+.logo:hover {
+  color: var(--accent);
+  transform: scale(1.03);
+}
 .nav {
   display: flex;
   align-items: center;
@@ -80,15 +90,21 @@ body {
   color: var(--text-muted);
   text-decoration: none;
   border-radius: var(--radius-sm);
-  transition: color var(--transition), background var(--transition);
+  transition: color var(--transition), background var(--transition), transform var(--transition), box-shadow var(--transition);
 }
 .nav-link:hover {
   color: var(--text);
   background: var(--accent-soft);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(226, 24, 54, 0.2);
 }
 .nav-link.active {
   color: var(--accent);
   background: var(--accent-soft);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+.nav-link.active:hover {
+  box-shadow: 0 4px 12px var(--accent-glow);
 }
 .header-links {
   display: flex;
@@ -102,11 +118,13 @@ body {
   color: var(--text-muted);
   text-decoration: none;
   border-radius: var(--radius-sm);
-  transition: color var(--transition), background var(--transition);
+  transition: color var(--transition), background var(--transition), transform var(--transition), box-shadow var(--transition);
 }
 .icon-link:hover {
   color: var(--accent);
   background: var(--accent-soft);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 14px var(--accent-glow);
 }
 
 /* ---------- Panels ---------- */
@@ -135,6 +153,11 @@ body {
   background: var(--bg-card);
   border: 1px solid var(--border);
   max-width: 420px;
+  transition: transform var(--transition-slow), box-shadow var(--transition-slow);
+}
+.hero-image:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 40px rgba(226, 24, 54, 0.15);
 }
 .hero-image img {
   display: block;
@@ -142,6 +165,10 @@ body {
   height: auto;
   max-height: 280px;
   object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+.hero-image:hover img {
+  transform: scale(1.03);
 }
 .hero-placeholder {
   display: flex;
@@ -179,6 +206,11 @@ body {
   padding-bottom: 0.4rem;
   border-bottom: 2px solid var(--accent);
   display: inline-block;
+  transition: color var(--transition), border-color var(--transition), text-shadow var(--transition);
+}
+.content-block h2:hover {
+  color: var(--accent);
+  text-shadow: 0 0 20px var(--accent-glow);
 }
 .prose {
   color: var(--text-muted);
@@ -189,8 +221,12 @@ body {
 .prose a {
   color: var(--accent);
   text-decoration: none;
+  transition: color var(--transition), text-shadow var(--transition);
 }
-.prose a:hover { text-decoration: underline; }
+.prose a:hover {
+  color: #ff4466;
+  text-shadow: 0 0 12px var(--accent-glow);
+}
 .prose code, .pub-item code {
   font-size: 0.9em;
   padding: 0.15em 0.4em;
@@ -216,10 +252,13 @@ body {
   border-radius: 999px;
   font-size: 0.9rem;
   color: var(--text-muted);
+  transition: border-color var(--transition), color var(--transition), transform var(--transition), box-shadow var(--transition);
 }
 .tag-list li:hover {
   border-color: var(--accent);
   color: var(--text);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px var(--accent-glow);
 }
 
 /* ---------- Publications ---------- */
@@ -234,6 +273,12 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+  transition: padding-left var(--transition), background var(--transition);
+  border-radius: var(--radius-sm);
+}
+.pub-item:hover {
+  padding-left: 0.5rem;
+  background: var(--accent-soft);
 }
 .pub-item:last-child { border-bottom: none; }
 .pub-title {
@@ -251,8 +296,12 @@ body {
 .pub-links a {
   color: var(--accent);
   text-decoration: none;
+  transition: color var(--transition), text-shadow var(--transition);
 }
-.pub-links a:hover { text-decoration: underline; }
+.pub-links a:hover {
+  color: #ff4466;
+  text-shadow: 0 0 10px var(--accent-glow);
+}
 .pub-item.placeholder {
   opacity: 0.7;
 }
@@ -269,6 +318,11 @@ body {
   padding-left: 1.25rem;
   position: relative;
   color: var(--text-muted);
+  transition: color var(--transition), padding-left var(--transition);
+}
+.service-list li:hover {
+  color: var(--text);
+  padding-left: 1.5rem;
 }
 .service-list li::before {
   content: '';
@@ -290,12 +344,21 @@ body {
   background: var(--bg-card);
   border: 1px solid var(--border);
   max-width: 280px;
+  transition: transform var(--transition-slow), box-shadow var(--transition-slow);
+}
+.personal-photo:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 32px var(--accent-glow);
 }
 .personal-photo img {
   display: block;
   width: 100%;
   height: auto;
   object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+.personal-photo:hover img {
+  transform: scale(1.05);
 }
 
 /* ---------- Personal links ---------- */
@@ -309,8 +372,15 @@ body {
   color: var(--accent);
   text-decoration: none;
   font-weight: 500;
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition), background var(--transition), transform var(--transition), box-shadow var(--transition);
 }
-.personal-links a:hover { text-decoration: underline; }
+.personal-links a:hover {
+  background: var(--accent-soft);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px var(--accent-glow);
+}
 
 /* ---------- Footer ---------- */
 .site-footer {
