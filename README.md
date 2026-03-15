@@ -39,9 +39,14 @@ python -m http.server 8000
      - `https://用户名.github.io`（仓库名为 `用户名.github.io` 时）  
      - 或 `https://用户名.github.io/仓库名`
 
+## 访问统计
+
+- **Google Analytics 4**：在 `index.html` 里把 `G-XXXXXXXXXX` 换成你的 [GA4](https://analytics.google.com) Measurement ID，即可在后台看访问量、来源、设备等。
+- **访客地图（Map My Visitors）**：Home 页底部已预留访客地图区块。请到 [mapmyvisitors.com](https://mapmyvisitors.com) 注册并创建免费 widget（Map 或 Globe），获取你的 widget ID 后，在 `index.html` 里把 `YOUR_WIDGET_ID` 替换成该 ID。
+
 ## 自定义
 
-- **头像/首图**：把照片放到 `assets/hero.jpg`，页面顶部会显示（支持 JPG/PNG）。
+- **头像/首图**：把照片放到 `assets/`，在 `index.html` 中引用。
 - **内容**：直接改 `index.html` 里的文字。
 - **样式**：在 `styles.css` 里改颜色、字体等（如 UMD 红色已在 `--color-accent`）。
 
