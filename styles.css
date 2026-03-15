@@ -225,8 +225,8 @@ a, button, [role="button"], .nav-link, .icon-link, .tag-list li {
   transform: scale(1.04) translateY(-4px);
   box-shadow: 0 20px 48px rgba(226, 24, 51, 0.25), 0 0 0 1px rgba(226, 24, 51, 0.2);
 }
-.hero-image--selfie { max-width: 240px; }
-.hero-image--max { max-width: 340px; }
+.hero-image--selfie,
+.hero-image--max { max-width: 280px; }
 .hero-image img {
   display: block;
   width: 100%;
