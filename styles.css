@@ -22,6 +22,7 @@
 /* ---------- Reset ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+/* 自定义光标：用 data URI 内联，避免路径问题；部分浏览器仅支持 32x32 */
 body {
   margin: 0;
   font-family: var(--font-sans);
@@ -30,10 +31,10 @@ body {
   color: var(--text);
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
-  cursor: url('assets/cursor.svg') 4 4, auto;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23e21836' d='M4 2l16 10-7 1.5-2 8.5L4 2z'/%3E%3C/svg%3E") 4 4, auto;
 }
 a, button, [role="button"], .nav-link, .icon-link, .tag-list li {
-  cursor: url('assets/cursor-pointer.svg') 6 2, pointer;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23e21836' d='M8 2v4l4-2 2 8 4-2-10-8z'/%3E%3C/svg%3E") 6 2, pointer;
 }
 
 /* ---------- Layout ---------- */
@@ -76,7 +77,8 @@ a, button, [role="button"], .nav-link, .icon-link, .tag-list li {
 }
 .logo:hover {
   color: var(--accent);
-  transform: scale(1.03);
+  transform: scale(1.08);
+  text-shadow: 0 0 24px var(--accent-glow);
 }
 .nav {
   display: flex;
@@ -93,10 +95,10 @@ a, button, [role="button"], .nav-link, .icon-link, .tag-list li {
   transition: color var(--transition), background var(--transition), transform var(--transition), box-shadow var(--transition);
 }
 .nav-link:hover {
-  color: var(--text);
-  background: var(--accent-soft);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(226, 24, 54, 0.2);
+  color: var(--accent);
+  background: rgba(226, 24, 54, 0.25);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(226, 24, 54, 0.4);
 }
 .nav-link.active {
   color: var(--accent);
@@ -104,7 +106,8 @@ a, button, [role="button"], .nav-link, .icon-link, .tag-list li {
   box-shadow: 0 0 0 1px var(--accent);
 }
 .nav-link.active:hover {
-  box-shadow: 0 4px 12px var(--accent-glow);
+  box-shadow: 0 6px 20px var(--accent-glow);
+  transform: translateY(-3px) scale(1.05);
 }
 .header-links {
   display: flex;
@@ -121,10 +124,10 @@ a, button, [role="button"], .nav-link, .icon-link, .tag-list li {
   transition: color var(--transition), background var(--transition), transform var(--transition), box-shadow var(--transition);
 }
 .icon-link:hover {
-  color: var(--accent);
-  background: var(--accent-soft);
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 4px 14px var(--accent-glow);
+  color: #fff;
+  background: var(--accent);
+  transform: translateY(-4px) scale(1.1);
+  box-shadow: 0 8px 24px rgba(226, 24, 54, 0.5);
 }
 
 /* ---------- Panels ---------- */
@@ -156,8 +159,8 @@ a, button, [role="button"], .nav-link, .icon-link, .tag-list li {
   transition: transform var(--transition-slow), box-shadow var(--transition-slow);
 }
 .hero-image:hover {
-  transform: scale(1.02);
-  box-shadow: 0 12px 40px rgba(226, 24, 54, 0.15);
+  transform: scale(1.04);
+  box-shadow: 0 16px 48px rgba(226, 24, 54, 0.3);
 }
 .hero-image img {
   display: block;
@@ -168,7 +171,7 @@ a, button, [role="button"], .nav-link, .icon-link, .tag-list li {
   transition: transform var(--transition-slow);
 }
 .hero-image:hover img {
-  transform: scale(1.03);
+  transform: scale(1.06);
 }
 .hero-placeholder {
   display: flex;
@@ -206,11 +209,12 @@ a, button, [role="button"], .nav-link, .icon-link, .tag-list li {
   padding-bottom: 0.4rem;
   border-bottom: 2px solid var(--accent);
   display: inline-block;
-  transition: color var(--transition), border-color var(--transition), text-shadow var(--transition);
+  transition: color var(--transition), border-color var(--transition), text-shadow var(--transition), transform 0.2s ease;
 }
 .content-block h2:hover {
   color: var(--accent);
-  text-shadow: 0 0 20px var(--accent-glow);
+  text-shadow: 0 0 28px var(--accent-glow);
+  transform: translateX(6px);
 }
 .prose {
   color: var(--text-muted);
@@ -224,8 +228,9 @@ a, button, [role="button"], .nav-link, .icon-link, .tag-list li {
   transition: color var(--transition), text-shadow var(--transition);
 }
 .prose a:hover {
-  color: #ff4466;
-  text-shadow: 0 0 12px var(--accent-glow);
+  color: #ff6680;
+  text-shadow: 0 0 16px var(--accent-glow);
+  filter: brightness(1.2);
 }
 .prose code, .pub-item code {
   font-size: 0.9em;
@@ -256,9 +261,10 @@ a, button, [role="button"], .nav-link, .icon-link, .tag-list li {
 }
 .tag-list li:hover {
   border-color: var(--accent);
-  color: var(--text);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px var(--accent-glow);
+  background: rgba(226, 24, 54, 0.12);
+  color: var(--accent);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 8px 24px rgba(226, 24, 54, 0.35);
 }
 
 /* ---------- Publications ---------- */
@@ -277,8 +283,9 @@ a, button, [role="button"], .nav-link, .icon-link, .tag-list li {
   border-radius: var(--radius-sm);
 }
 .pub-item:hover {
-  padding-left: 0.5rem;
-  background: var(--accent-soft);
+  padding-left: 0.75rem;
+  background: rgba(226, 24, 54, 0.12);
+  box-shadow: inset 3px 0 0 var(--accent);
 }
 .pub-item:last-child { border-bottom: none; }
 .pub-title {
@@ -299,8 +306,8 @@ a, button, [role="button"], .nav-link, .icon-link, .tag-list li {
   transition: color var(--transition), text-shadow var(--transition);
 }
 .pub-links a:hover {
-  color: #ff4466;
-  text-shadow: 0 0 10px var(--accent-glow);
+  color: #ff6680;
+  text-shadow: 0 0 14px var(--accent-glow);
 }
 .pub-item.placeholder {
   opacity: 0.7;
@@ -347,8 +354,8 @@ a, button, [role="button"], .nav-link, .icon-link, .tag-list li {
   transition: transform var(--transition-slow), box-shadow var(--transition-slow);
 }
 .personal-photo:hover {
-  transform: scale(1.03);
-  box-shadow: 0 12px 32px var(--accent-glow);
+  transform: scale(1.05);
+  box-shadow: 0 16px 40px rgba(226, 24, 54, 0.4);
 }
 .personal-photo img {
   display: block;
@@ -358,7 +365,7 @@ a, button, [role="button"], .nav-link, .icon-link, .tag-list li {
   transition: transform var(--transition-slow);
 }
 .personal-photo:hover img {
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
 /* ---------- Personal links ---------- */
@@ -377,9 +384,10 @@ a, button, [role="button"], .nav-link, .icon-link, .tag-list li {
   transition: color var(--transition), background var(--transition), transform var(--transition), box-shadow var(--transition);
 }
 .personal-links a:hover {
-  background: var(--accent-soft);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 14px var(--accent-glow);
+  color: #fff;
+  background: var(--accent);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(226, 24, 54, 0.5);
 }
 
 /* ---------- Footer ---------- */
