@@ -7,69 +7,121 @@
   <meta name="description" content="Dianwei Chen - Ph.D. candidate at University of Maryland, research in RL, Digital Twins, Autonomous Vehicle Safety, and Vision LLMs.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <nav class="nav">
-      <a href="#about">About</a>
-      <a href="#research">Research</a>
-      <a href="#links">Links</a>
-    </nav>
-  </header>
-
-  <main>
-    <section class="hero">
-      <h1 class="name">Dianwei Chen</h1>
-      <p class="tagline">Ph.D. Candidate · Civil & Environmental Engineering · University of Maryland</p>
-      <figure class="hero-image">
-        <!-- 将您的照片保存为 assets/hero.jpg 即可显示；若无图片则显示下方占位 -->
-        <img src="assets/hero.jpg" alt="Max with the M-Trail AV" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-        <div class="hero-placeholder" style="display:none;" aria-hidden="true">
-          <span>Max with the M-Trail AV</span>
-        </div>
-      </figure>
-    </section>
-
-    <section id="about" class="section">
-      <h2>About me</h2>
-      <div class="content prose">
-        <p>Hi! I'm <strong>Dianwei Chen</strong>, a Ph.D. candidate at the <strong>University of Maryland, College Park</strong>, advised by <strong>Prof. Terry Yang</strong>. Before joining UMD, I acquired my Master's degree at <strong>The Ohio State University</strong>, working with Prof. Keith Redmill and Prof. Umit Ozguner, and my Bachelor's degree at <strong>Zhejiang University</strong>.</p>
-        <p>My research lies at the intersection of <strong>Reinforcement Learning</strong>, <strong>Digital Twins</strong>, <strong>Autonomous Vehicle (AV) Safety</strong>, and <strong>Vision Large Language Models</strong>.</p>
-        <p>I work on building intelligent and robust simulation platforms to evaluate AV safety in complex and adverse driving scenarios. My recent projects include RL-based car-following algorithms in CARLA-SUMO co-simulation environments, Physics Regularized Gaussian Process (PRGP) models, and pedestrian behavior modeling for identifying edge-case AV failures.</p>
-        <p>Previously, I have also contributed to real-vehicle ROS and Autoware system development, and I am actively involved in bridging the gap between simulation-based research and real-world AV deployment.</p>
-        <p>Beyond research, I am passionate about building open-source tools for the AV community and advancing safe and trustworthy AI-driven transportation systems.</p>
-        <p>When I'm not working on autonomous vehicles, I'm happily spending time with my amazing partner, Susan, and our playful Golden Retriever, Max.</p>
+  <div class="page-wrap">
+    <header class="site-header">
+      <a href="#" class="logo" data-tab="home">Dianwei Chen</a>
+      <nav class="nav" role="tablist">
+        <a href="#" class="nav-link active" data-tab="home" role="tab" aria-selected="true">Home</a>
+        <a href="#" class="nav-link" data-tab="publications" role="tab" aria-selected="false">Publications</a>
+        <a href="#" class="nav-link" data-tab="services" role="tab" aria-selected="false">Services</a>
+        <a href="#" class="nav-link" data-tab="personal" role="tab" aria-selected="false">Personal</a>
+      </nav>
+      <div class="header-links">
+        <a href="mailto:dwchen98@umd.edu" class="icon-link" title="Email">Email</a>
+        <a href="https://scholar.google.com/citations?user=0EVALfUAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="icon-link" title="Google Scholar">Scholar</a>
+        <a href="https://github.com/DianweiCHEN" target="_blank" rel="noopener noreferrer" class="icon-link" title="GitHub">GitHub</a>
+        <a href="https://www.linkedin.com/in/dianwei-chen-513092185/" target="_blank" rel="noopener noreferrer" class="icon-link" title="LinkedIn">LinkedIn</a>
       </div>
-    </section>
+    </header>
 
-    <section id="research" class="section">
-      <h2>Research</h2>
-      <ul class="research-topics">
-        <li>Reinforcement Learning for AV control</li>
-        <li>Digital Twins & simulation platforms</li>
-        <li>Autonomous Vehicle Safety evaluation</li>
-        <li>Vision Large Language Models</li>
-        <li>CARLA-SUMO co-simulation</li>
-        <li>Physics Regularized Gaussian Process (PRGP)</li>
-        <li>Pedestrian behavior modeling & edge-case AV failures</li>
-      </ul>
-    </section>
+    <main class="main">
+      <!-- HOME -->
+      <section id="panel-home" class="panel active" role="tabpanel">
+        <div class="hero">
+          <figure class="hero-image">
+            <img src="assets/hero.jpg" alt="Max with the M-Trail AV" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="hero-placeholder" style="display:none;" aria-hidden="true">
+              <span>Max with the M-Trail AV</span>
+            </div>
+          </figure>
+          <h1 class="hero-title">Dianwei Chen</h1>
+          <p class="hero-tagline">Ph.D. Candidate · Civil & Environmental Engineering · University of Maryland, College Park</p>
+        </div>
+        <div class="content-block">
+          <h2>About me</h2>
+          <div class="prose">
+            <p>Hi! I'm <strong>Dianwei Chen</strong>, a Ph.D. candidate at the <strong>University of Maryland, College Park</strong>, advised by <strong>Prof. Terry Yang</strong>. Before joining UMD, I acquired my Master's degree at <strong>The Ohio State University</strong>, working with Prof. Keith Redmill and Prof. Umit Ozguner, and my Bachelor's degree at <strong>Zhejiang University</strong>.</p>
+            <p>My research lies at the intersection of <strong>Reinforcement Learning</strong>, <strong>Digital Twins</strong>, <strong>Autonomous Vehicle (AV) Safety</strong>, and <strong>Vision Large Language Models</strong>.</p>
+            <p>I work on building intelligent and robust simulation platforms to evaluate AV safety in complex and adverse driving scenarios. My recent projects include RL-based car-following algorithms in CARLA-SUMO co-simulation environments, Physics Regularized Gaussian Process (PRGP) models, and pedestrian behavior modeling for identifying edge-case AV failures.</p>
+            <p>Previously, I have also contributed to real-vehicle ROS and Autoware system development, and I am actively involved in bridging the gap between simulation-based research and real-world AV deployment.</p>
+            <p>Beyond research, I am passionate about building open-source tools for the AV community and advancing safe and trustworthy AI-driven transportation systems.</p>
+          </div>
+        </div>
+        <div class="content-block">
+          <h2>Research interests</h2>
+          <ul class="tag-list">
+            <li>Reinforcement Learning for AV control</li>
+            <li>Digital Twins & simulation</li>
+            <li>Autonomous Vehicle Safety</li>
+            <li>Vision Large Language Models</li>
+            <li>CARLA-SUMO co-simulation</li>
+            <li>Physics Regularized Gaussian Process (PRGP)</li>
+            <li>Pedestrian behavior & edge-case AV failures</li>
+          </ul>
+        </div>
+      </section>
 
-    <section id="links" class="section">
-      <h2>Links</h2>
-      <ul class="link-list">
-        <li><a href="mailto:dwchen98@umd.edu">dwchen98 at umd dot edu</a></li>
-        <li><a href="https://scholar.google.com/citations?user=0EVALfUAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a></li>
-        <li><a href="https://github.com/DianweiCHEN" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/dianwei-chen-513092185/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-      </ul>
-    </section>
-  </main>
+      <!-- PUBLICATIONS -->
+      <section id="panel-publications" class="panel" role="tabpanel" hidden>
+        <div class="content-block">
+          <h2>Publications</h2>
+          <p class="prose intro">Representative or recent work. Full list on <a href="https://scholar.google.com/citations?user=0EVALfUAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>.</p>
+          <ul class="pub-list">
+            <!-- 在此添加论文，格式示例： -->
+            <li class="pub-item">
+              <span class="pub-title">Your Paper Title Here</span>
+              <span class="pub-authors">D. Chen, T. Yang, et al.</span>
+              <span class="pub-venue">Conference/Journal Name, Year.</span>
+              <span class="pub-links"><a href="#">PDF</a> · <a href="#">Code</a></span>
+            </li>
+            <li class="pub-item placeholder">
+              <span class="pub-title">Add your publications in index.html (panel-publications)</span>
+              <span class="pub-venue">Edit the <code>&lt;ul class="pub-list"&gt;</code> section.</span>
+            </li>
+          </ul>
+        </div>
+      </section>
 
-  <footer class="site-footer">
-    <p>Department of Civil and Environmental Engineering · University of Maryland, College Park</p>
-  </footer>
+      <!-- SERVICES -->
+      <section id="panel-services" class="panel" role="tabpanel" hidden>
+        <div class="content-block">
+          <h2>Services</h2>
+          <p class="prose intro">Academic and professional service.</p>
+          <ul class="service-list">
+            <li><strong>Reviewer</strong> — e.g. IEEE T-ITS, TRB, etc. <em>(update with your venues)</em></li>
+            <li><strong>Teaching</strong> — e.g. TA for CEE courses <em>(update as needed)</em></li>
+            <li><strong>Open source</strong> — Contributions to AV/simulation tooling.</li>
+          </ul>
+          <p class="prose">You can replace this list with your actual service items in <code>index.html</code>.</p>
+        </div>
+      </section>
+
+      <!-- PERSONAL -->
+      <section id="panel-personal" class="panel" role="tabpanel" hidden>
+        <div class="content-block">
+          <h2>Personal</h2>
+          <div class="prose">
+            <p>When I'm not working on autonomous vehicles, I'm happily spending time with my amazing partner, <strong>Susan</strong>, and our playful Golden Retriever, <strong>Max</strong>.</p>
+            <p>I enjoy building open-source tools for the AV community and advancing safe and trustworthy AI-driven transportation systems.</p>
+          </div>
+          <div class="personal-links">
+            <a href="mailto:dwchen98@umd.edu">Email</a>
+            <a href="https://scholar.google.com/citations?user=0EVALfUAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+            <a href="https://github.com/DianweiCHEN" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/dianwei-chen-513092185/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Department of Civil and Environmental Engineering · University of Maryland, College Park</p>
+    </footer>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
