@@ -12,8 +12,12 @@
 </head>
 <body>
   <div class="page-wrap">
+    <div class="umd-topbar" aria-hidden="true"></div>
     <header class="site-header">
-      <a href="#" class="logo" data-tab="home">Dianwei Chen</a>
+      <a href="#" class="logo-wrap" data-tab="home">
+        <img src="assets/umdlogo.png" alt="UMD" class="umd-logo">
+        <span class="logo">Dianwei Chen</span>
+      </a>
       <nav class="nav" role="tablist">
         <a href="#" class="nav-link active" data-tab="home" role="tab" aria-selected="true">Home</a>
         <a href="#" class="nav-link" data-tab="publications" role="tab" aria-selected="false">Publications</a>
@@ -32,12 +36,17 @@
       <!-- HOME -->
       <section id="panel-home" class="panel active" role="tabpanel">
         <div class="hero">
-          <figure class="hero-image">
-            <img src="assets/max.jpg" alt="Max with the M-Trail AV" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="hero-placeholder" style="display:none;" aria-hidden="true">
-              <span>Max with the M-Trail AV</span>
-            </div>
-          </figure>
+          <img src="assets/Maryland-Terrapins-Wallpapers.jpg" alt="" class="hero-banner" role="presentation">
+          <div class="hero-photos">
+            <figure class="hero-image hero-image--selfie">
+              <img src="assets/selfie.jpg" alt="Dianwei Chen" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="hero-placeholder" style="display:none;" aria-hidden="true">Photo</div>
+            </figure>
+            <figure class="hero-image hero-image--max">
+              <img src="assets/max.jpg" alt="Max with the M-Trail AV" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="hero-placeholder" style="display:none;" aria-hidden="true">Max with the M-Trail AV</div>
+            </figure>
+          </div>
           <h1 class="hero-title">Dianwei Chen</h1>
           <p class="hero-tagline">Ph.D. Candidate · Civil & Environmental Engineering · University of Maryland, College Park</p>
         </div>
@@ -175,7 +184,7 @@
     </main>
 
     <footer class="site-footer">
-      <p>Department of Civil and Environmental Engineering · University of Maryland, College Park</p>
+      <p><a href="https://cee.umd.edu" target="_blank" rel="noopener noreferrer">Department of Civil and Environmental Engineering</a> · University of Maryland, College Park</p>
     </footer>
   </div>
   <script src="script.js"></script>

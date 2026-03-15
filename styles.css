@@ -1,16 +1,21 @@
-/* ---------- Variables ---------- */
+/* ---------- UMD Brand (brand.umd.edu) ---------- */
 :root {
-  --bg: #0d0d0f;
-  --bg-elevated: #16161a;
-  --bg-card: #1c1c21;
-  --text: #e8e6e3;
-  --text-muted: #9b9996;
-  --accent: #e21836;
-  --accent-soft: rgba(226, 24, 54, 0.15);
-  --accent-glow: rgba(226, 24, 54, 0.35);
-  --border: #2a2a30;
-  --radius: 12px;
-  --radius-sm: 8px;
+  --umd-red: #e21833;
+  --umd-gold: #ffd200;
+  --umd-black: #000000;
+  --umd-white: #ffffff;
+  --bg: #fafafa;
+  --bg-elevated: #ffffff;
+  --bg-card: #ffffff;
+  --text: #1a1a1a;
+  --text-muted: #4a4a4a;
+  --accent: var(--umd-red);
+  --accent-soft: rgba(226, 24, 51, 0.12);
+  --accent-glow: rgba(226, 24, 51, 0.25);
+  --gold-soft: rgba(255, 210, 0, 0.15);
+  --border: #e5e5e5;
+  --radius: 10px;
+  --radius-sm: 6px;
   --font-serif: 'Instrument Serif', Georgia, serif;
   --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
   --max-width: 780px;
@@ -31,10 +36,10 @@ body {
   color: var(--text);
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23e21836' d='M4 2l16 10-7 1.5-2 8.5L4 2z'/%3E%3C/svg%3E") 4 4, auto;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23e21833' d='M4 2l16 10-7 1.5-2 8.5L4 2z'/%3E%3C/svg%3E") 4 4, auto;
 }
 a, button, [role="button"], .nav-link, .icon-link, .tag-list li {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23e21836' d='M8 2v4l4-2 2 8 4-2-10-8z'/%3E%3C/svg%3E") 6 2, pointer;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23e21833' d='M8 2v4l4-2 2 8 4-2-10-8z'/%3E%3C/svg%3E") 6 2, pointer;
 }
 
 /* ---------- Layout ---------- */
@@ -51,6 +56,11 @@ a, button, [role="button"], .nav-link, .icon-link, .tag-list li {
   width: 100%;
 }
 
+/* ---------- UMD Top bar ---------- */
+.umd-topbar {
+  background: var(--umd-red);
+  height: 4px;
+}
 /* ---------- Header & Tabs ---------- */
 .site-header {
   position: sticky;
@@ -62,10 +72,25 @@ a, button, [role="button"], .nav-link, .icon-link, .tag-list li {
   gap: 1.5rem;
   height: var(--header-h);
   padding: 0 1.5rem;
-  background: rgba(13, 13, 15, 0.85);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
+  background: var(--bg-elevated);
+  box-shadow: 0 1px 0 var(--border);
 }
+.site-header .logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.site-header .umd-logo {
+  height: 36px;
+  width: auto;
+  display: block;
+}
+.logo-wrap {
+  text-decoration: none;
+  color: inherit;
+  display: inline-flex;
+}
+.logo-wrap:hover .logo { color: var(--umd-red); }
 .logo {
   font-family: var(--font-serif);
   font-size: 1.35rem;
@@ -76,9 +101,8 @@ a, button, [role="button"], .nav-link, .icon-link, .tag-list li {
   transition: color var(--transition), transform var(--transition-slow);
 }
 .logo:hover {
-  color: var(--accent);
+  color: var(--umd-red);
   transform: scale(1.08);
-  text-shadow: 0 0 24px var(--accent-glow);
 }
 .nav {
   display: flex;
@@ -95,15 +119,15 @@ a, button, [role="button"], .nav-link, .icon-link, .tag-list li {
   transition: color var(--transition), background var(--transition), transform var(--transition), box-shadow var(--transition);
 }
 .nav-link:hover {
-  color: var(--accent);
-  background: rgba(226, 24, 54, 0.25);
+  color: var(--umd-red);
+  background: var(--accent-soft);
   transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 6px 20px rgba(226, 24, 54, 0.4);
+  box-shadow: 0 6px 20px var(--accent-glow);
 }
 .nav-link.active {
-  color: var(--accent);
+  color: var(--umd-red);
   background: var(--accent-soft);
-  box-shadow: 0 0 0 1px var(--accent);
+  box-shadow: 0 0 0 1px var(--umd-red);
 }
 .nav-link.active:hover {
   box-shadow: 0 6px 20px var(--accent-glow);
@@ -124,10 +148,10 @@ a, button, [role="button"], .nav-link, .icon-link, .tag-list li {
   transition: color var(--transition), background var(--transition), transform var(--transition), box-shadow var(--transition);
 }
 .icon-link:hover {
-  color: #fff;
-  background: var(--accent);
+  color: var(--umd-white);
+  background: var(--umd-red);
   transform: translateY(-4px) scale(1.1);
-  box-shadow: 0 8px 24px rgba(226, 24, 54, 0.5);
+  box-shadow: 0 8px 24px rgba(226, 24, 51, 0.4);
 }
 
 /* ---------- Panels ---------- */
@@ -149,18 +173,29 @@ a, button, [role="button"], .nav-link, .icon-link, .tag-list li {
   text-align: center;
   margin-bottom: 2.5rem;
 }
+.hero-photos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
 .hero-image {
-  margin: 0 auto 1.5rem;
+  margin: 0;
   border-radius: var(--radius);
   overflow: hidden;
   background: var(--bg-card);
   border: 1px solid var(--border);
-  max-width: 420px;
+  flex: 1 1 200px;
+  max-width: 280px;
   transition: transform var(--transition-slow), box-shadow var(--transition-slow);
 }
+.hero-image--selfie { max-width: 240px; }
+.hero-image--max { max-width: 340px; }
 .hero-image:hover {
   transform: scale(1.04);
-  box-shadow: 0 16px 48px rgba(226, 24, 54, 0.3);
+  box-shadow: 0 16px 48px rgba(226, 24, 51, 0.2);
 }
 .hero-image img {
   display: block;
@@ -207,13 +242,12 @@ a, button, [role="button"], .nav-link, .icon-link, .tag-list li {
   margin: 0 0 1rem;
   color: var(--text);
   padding-bottom: 0.4rem;
-  border-bottom: 2px solid var(--accent);
+  border-bottom: 3px solid var(--umd-red);
   display: inline-block;
-  transition: color var(--transition), border-color var(--transition), text-shadow var(--transition), transform 0.2s ease;
+  transition: color var(--transition), border-color var(--transition), transform 0.2s ease;
 }
 .content-block h2:hover {
-  color: var(--accent);
-  text-shadow: 0 0 28px var(--accent-glow);
+  color: var(--umd-red);
   transform: translateX(6px);
 }
 .prose {
@@ -260,11 +294,11 @@ a, button, [role="button"], .nav-link, .icon-link, .tag-list li {
   transition: border-color var(--transition), color var(--transition), transform var(--transition), box-shadow var(--transition);
 }
 .tag-list li:hover {
-  border-color: var(--accent);
-  background: rgba(226, 24, 54, 0.12);
-  color: var(--accent);
+  border-color: var(--umd-red);
+  background: var(--accent-soft);
+  color: var(--umd-red);
   transform: translateY(-4px) scale(1.03);
-  box-shadow: 0 8px 24px rgba(226, 24, 54, 0.35);
+  box-shadow: 0 8px 24px rgba(226, 24, 51, 0.2);
 }
 
 /* ---------- Publications ---------- */
@@ -284,8 +318,8 @@ a, button, [role="button"], .nav-link, .icon-link, .tag-list li {
 }
 .pub-item:hover {
   padding-left: 0.75rem;
-  background: rgba(226, 24, 54, 0.12);
-  box-shadow: inset 3px 0 0 var(--accent);
+  background: var(--accent-soft);
+  box-shadow: inset 3px 0 0 var(--umd-red);
 }
 .pub-item:last-child { border-bottom: none; }
 .pub-title {
@@ -338,7 +372,7 @@ a, button, [role="button"], .nav-link, .icon-link, .tag-list li {
   top: 0.95em;
   width: 6px;
   height: 6px;
-  background: var(--accent);
+  background: var(--umd-red);
   border-radius: 50%;
 }
 .service-list strong { color: var(--text); }
@@ -355,7 +389,7 @@ a, button, [role="button"], .nav-link, .icon-link, .tag-list li {
 }
 .personal-photo:hover {
   transform: scale(1.05);
-  box-shadow: 0 16px 40px rgba(226, 24, 54, 0.4);
+  box-shadow: 0 16px 40px rgba(226, 24, 51, 0.25);
 }
 .personal-photo img {
   display: block;
@@ -387,18 +421,29 @@ a, button, [role="button"], .nav-link, .icon-link, .tag-list li {
   color: #fff;
   background: var(--accent);
   transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 6px 20px rgba(226, 24, 54, 0.5);
+  box-shadow: 0 6px 20px var(--accent-glow);
 }
 
-/* ---------- Footer ---------- */
+/* ---------- Footer (UMD style) ---------- */
 .site-footer {
-  padding: 1.5rem 1.5rem;
-  border-top: 1px solid var(--border);
+  padding: 1.25rem 1.5rem;
+  background: var(--umd-red);
+  color: var(--umd-white);
   text-align: center;
-  color: var(--text-muted);
   font-size: 0.85rem;
 }
-.site-footer p { margin: 0; }
+.site-footer p { margin: 0; opacity: 0.95; }
+.site-footer a { color: var(--umd-gold); text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+
+/* ---------- UMD Hero banner (optional) ---------- */
+.hero-banner {
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+  border-radius: 0 0 var(--radius) var(--radius);
+}
 
 /* ---------- Responsive ---------- */
 @media (max-width: 768px) {
@@ -418,6 +463,10 @@ a, button, [role="button"], .nav-link, .icon-link, .tag-list li {
   .nav-link { padding: 0.4rem 0.65rem; font-size: 0.85rem; }
   .header-links { margin-left: auto; }
   .main { padding: 1.5rem 1rem 2rem; }
+  .hero-banner { max-height: 120px; }
+  .hero-photos { flex-direction: column; align-items: center; gap: 1rem; }
+  .hero-image, .hero-image--selfie, .hero-image--max { max-width: 280px; }
   .hero-title { font-size: 2rem; }
+  .site-header .umd-logo { height: 28px; }
   .tag-list li { font-size: 0.85rem; }
 }

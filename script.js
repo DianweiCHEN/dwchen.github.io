@@ -1,6 +1,6 @@
 (function () {
   const navLinks = document.querySelectorAll('.nav-link[data-tab]');
-  const logo = document.querySelector('.logo[data-tab]');
+  const logo = document.querySelector('.logo-wrap[data-tab]');
   const panels = document.querySelectorAll('.panel');
 
   function setActiveTab(tabId) {
