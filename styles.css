@@ -414,6 +414,17 @@ a, button, [role="button"], .nav-link, .icon-link, .tag-list li {
 .pub-item.placeholder .pub-venue { font-style: italic; }
 
 /* ---------- Services ---------- */
+.service-subtitle {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 1.25rem 0 0.5rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid var(--umd-gold);
+  display: inline-block;
+}
+.service-subtitle:first-of-type { margin-top: 0.5rem; }
 .service-list {
   list-style: none;
   padding: 0;
