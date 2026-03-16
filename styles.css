@@ -326,6 +326,33 @@ a, button, [role="button"], .nav-link, .icon-link, .tag-list li {
 }
 .prose.intro { margin-bottom: 1.25rem; }
 
+.about-lead {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--text);
+  margin: 0 0 1.25rem;
+  padding: 1rem 1.25rem;
+  border-left: 4px solid var(--umd-red);
+  background: var(--gold-soft);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.about-quote {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--text-muted);
+  margin: 0 0 1.25rem;
+  padding: 0.75rem 0 0.75rem 1.25rem;
+  border-left: 3px solid var(--umd-gold);
+}
+.about-quote cite {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  font-style: normal;
+  color: var(--text-muted);
+}
+
 /* ---------- Tag list (research) ---------- */
 .tag-list {
   list-style: none;
