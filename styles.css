@@ -713,6 +713,118 @@ a, button, [role="button"], .nav-link, .icon-link, .tag-list li {
   transform: translateY(-50%) scale(1.3);
 }
 
+/* ---------- Widgets row (views, GitHub, tip) ---------- */
+.widgets-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1.25rem;
+}
+.widget-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem 1rem;
+  background: rgba(255,255,255,.85);
+  border: 1px solid rgba(226,24,51,.12);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  transition: transform var(--t-mid), box-shadow var(--t-mid), border-color var(--t-fast);
+  text-decoration: none;
+  color: inherit;
+  min-height: 100px;
+}
+.widget-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(226,24,51,.12);
+  border-color: rgba(226,24,51,.25);
+}
+.widget-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.35rem;
+  opacity: 0.9;
+}
+.widget-views-count {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--umd-red);
+  line-height: 1.2;
+}
+.widget-views-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+}
+.widget-github {
+  overflow: hidden;
+}
+.widget-github-img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  transition: transform var(--t-mid);
+}
+.widget-card.widget-github:hover .widget-github-img {
+  transform: scale(1.03);
+}
+.widget-github-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--umd-red);
+  margin-top: 0.5rem;
+}
+.widget-tip {
+  align-items: flex-start;
+  text-align: left;
+}
+.widget-tip-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--av-cyan);
+  margin-bottom: 0.5rem;
+}
+.widget-tip-text {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  min-height: 2.5em;
+}
+
+/* Local time strip */
+.widget-clock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, var(--av-cyan-soft), transparent);
+  border-radius: 999px;
+  border: 1px solid rgba(14,165,233,.15);
+}
+.widget-clock-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+.widget-clock-time {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--av-cyan);
+}
+
 /* ---------- Visitor map ---------- */
 .globe-wrap {
   min-height: 280px;
@@ -999,4 +1111,8 @@ a, button, [role="button"], .nav-link, .icon-link, .tag-list li {
   .hero-av-pills { margin-top: 0.75rem; gap: 0.4rem; }
   .hero-av-pill { padding: 0.28rem 0.7rem; font-size: 0.7rem; letter-spacing: 0.08em; }
   .hero-toolchain { font-size: 0.7rem; letter-spacing: 0.12em; }
+  .widgets-row { grid-template-columns: 1fr; gap: 0.85rem; margin-bottom: 1rem; }
+  .widget-card { min-height: 88px; padding: 1rem; }
+  .widget-views-count { font-size: 1.5rem; }
+  .widget-clock { flex-wrap: wrap; justify-content: center; font-size: 0.9rem; }
 }

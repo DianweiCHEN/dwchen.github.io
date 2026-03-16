@@ -90,4 +90,52 @@
     });
   });
 
+  /* ---------- Page view counter (CountAPI) ---------- */
+  var viewEl = document.getElementById('page-view-count');
+  if (viewEl) {
+    fetch('https://api.countapi.xyz/hit/dianweichen.github.io/home')
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (d && typeof d.value === 'number') viewEl.textContent = d.value.toLocaleString();
+      })
+      .catch(function () { viewEl.textContent = '—'; });
+  }
+
+  /* ---------- Rotating research tips ---------- */
+  var tips = [
+    'Digital twins let you stress-test AVs in winter or rare scenarios without leaving the lab.',
+    'CARLA + SUMO co-simulation is a powerful way to model mixed traffic and pedestrians.',
+    'Edge cases in autonomy often show up in bad weather or unusual pedestrian behavior.',
+    'Physics-informed models (e.g. PRGP) can improve prediction when data is scarce.',
+    'Reinforcement learning can train adversarial agents to find AV failure modes.',
+    'Vision–language models are opening new ways to evaluate scene understanding in driving.'
+  ];
+  var tipEl = document.getElementById('research-tip-text');
+  var tipIndex = 0;
+  if (tipEl && tips.length) {
+    function showTip() {
+      tipEl.textContent = tips[tipIndex];
+      tipIndex = (tipIndex + 1) % tips.length;
+    }
+    showTip();
+    setInterval(showTip, 6000);
+  }
+
+  /* ---------- Local time (College Park, MD) ---------- */
+  var timeEl = document.getElementById('local-time');
+  if (timeEl) {
+    function updateTime() {
+      var now = new Date();
+      try {
+        var str = now.toLocaleTimeString('en-US', { timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        timeEl.textContent = str;
+        timeEl.setAttribute('datetime', now.toISOString());
+      } catch (e) {
+        timeEl.textContent = now.toLocaleTimeString();
+      }
+    }
+    updateTime();
+    setInterval(updateTime, 1000);
+  }
+
 })();
