@@ -247,6 +247,51 @@ a, button, [role="button"], .nav-link, .icon-link, .tag-list li {
   font-size: 0.9rem;
 }
 
+/* ---------- UMD Football / Terps strip ---------- */
+.terps-strip {
+  position: relative;
+  margin-top: 1.5rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+.terps-strip img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.terps-strip::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(226, 24, 51, 0.75) 0%, rgba(0, 0, 0, 0.6) 100%);
+}
+.terps-badge {
+  position: relative;
+  z-index: 1;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--umd-white);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.05em;
+}
+.terps-strip--small {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  height: 72px;
+}
+.terps-strip--small .terps-badge { font-size: 1rem; }
+.terps-proud {
+  color: var(--umd-red);
+  font-weight: 600;
+}
+
 /* ---------- Content blocks ---------- */
 .content-block {
   margin-bottom: 2.25rem;
@@ -586,4 +631,8 @@ a, button, [role="button"], .nav-link, .icon-link, .tag-list li {
   .hero-image, .hero-image--selfie, .hero-image--max { max-width: 280px; }
   .hero-title { font-size: 2rem; }
   .tag-list li { font-size: 0.85rem; }
+  .terps-strip { height: 80px; margin-top: 1rem; }
+  .terps-strip .terps-badge { font-size: 0.95rem; }
+  .terps-strip--small { height: 60px; }
+  .terps-strip--small .terps-badge { font-size: 0.9rem; }
 }
