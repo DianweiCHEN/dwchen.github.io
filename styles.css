@@ -261,15 +261,7 @@ a, button, [role="button"], .nav-link, .icon-link, .tag-list li {
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(255, 255, 255, 0.7);
 }
 
-/* ---------- Visitor globe (Revolver Maps) ---------- */
-.visitor-globe-block {
-  background: linear-gradient(145deg, rgba(20, 20, 28, 0.92) 0%, rgba(30, 28, 40, 0.95) 100%);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-}
-.visitor-globe-block h2 { color: var(--umd-white); border-bottom-color: var(--umd-gold); }
-.visitor-globe-block .prose.intro { color: rgba(255, 255, 255, 0.8); }
+/* ---------- Visitor map (Map My Visitors) ---------- */
 .globe-wrap {
   min-height: 280px;
   display: flex;
