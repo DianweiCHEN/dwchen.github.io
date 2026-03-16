@@ -10,7 +10,7 @@
   <link rel="apple-touch-icon" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <!-- 访问统计：到 https://analytics.google.com 创建 GA4 媒体资源，用你的 Measurement ID 替换下方 G-XXXXXXXXXX -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
@@ -69,7 +69,25 @@
           <h2>About me</h2>
           <p class="about-lead">I build simulation and AI tools to make autonomous vehicles safer—especially when the road gets icy, the scenario gets messy, or the AI hits an edge case.</p>
           <blockquote class="about-quote">All models are wrong, but some are useful. <cite>— George Box</cite></blockquote>
-          <div class="prose">
+          <div class="stats-row">
+            <div class="stat-card">
+              <div class="stat-number" data-count="9">9</div>
+              <div class="stat-label">Publications</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number" data-count="4">4</div>
+              <div class="stat-label">Published</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number" data-count="5">5</div>
+              <div class="stat-label">Preprints</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number" data-count="3">3</div>
+              <div class="stat-label">Universities</div>
+            </div>
+          </div>
+          <div class="prose" style="margin-top:1.25rem">
             <p>I'm <strong>Dianwei Chen</strong>, a Ph.D. candidate in <strong>Civil &amp; Environmental Engineering</strong> at the <strong>University of Maryland, College Park</strong>, advised by <strong>Prof. Terry Yang</strong>. I'm part of the <strong>M-Trail Lab</strong>, where we work on cyberinfrastructure and digital twins for transportation. Before UMD, I received my M.S. in Electrical &amp; Computer Engineering from <strong>The Ohio State University</strong> (with Prof. Keith Redmill and Prof. Umit Özgüner) and my B.E. from <strong>Zhejiang University</strong>.</p>
             <p>My research sits at the intersection of <strong>reinforcement learning</strong>, <strong>digital twins</strong>, <strong>AV safety evaluation</strong>, and <strong>vision–language models</strong>. I focus on <em>how to test and validate autonomous systems in conditions that are hard to replicate in the real world</em>—winter weather, rare pedestrian behaviors, and safety-critical edge cases. To do that, I build and use high-fidelity simulation (e.g. <strong>CARLA–SUMO</strong> co-simulation), physics-informed models such as <strong>Physics Regularized Gaussian Processes (PRGP)</strong>, and RL-based behavior models to stress-test AVs and find failure modes before they hit the road.</p>
             <p>I also work on the bridge from simulation to deployment: I've contributed to <strong>ROS and Autoware</strong> integration on real test vehicles (including PCD mapping and trajectory planning) and care deeply about open-source, reproducible tools for the AV and smart-transportation community.</p>
@@ -194,20 +212,24 @@
           <h2>Personal</h2>
           <div class="terps-strip terps-strip--small" role="presentation">
             <img src="assets/Events_Football.webp" alt="">
-            <span class="terps-badge">Maryland Terrapins</span>
+            <span class="terps-badge">Maryland Terrapins · Fear the Turtle</span>
           </div>
-          <figure class="personal-photo">
-            <img src="assets/selfie.jpg" alt="Dianwei Chen">
-          </figure>
-          <div class="prose">
-            <p>When I'm not working on autonomous vehicles, I'm happily spending time with our playful Golden Retriever, <strong>Max</strong>.</p>
-            <p>I enjoy building open-source tools for the AV community and advancing safe and trustworthy AI-driven transportation systems. <strong class="terps-proud">Proud to be a Terp.</strong></p>
-          </div>
-          <div class="personal-links">
-            <a href="mailto:dwchen98@umd.edu">Email</a>
-            <a href="https://scholar.google.com/citations?user=0EVALfUAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
-            <a href="https://github.com/DianweiCHEN" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://www.linkedin.com/in/dianwei-chen-513092185/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <div class="personal-grid">
+            <figure class="personal-photo">
+              <img src="assets/selfie.jpg" alt="Dianwei Chen">
+            </figure>
+            <div>
+              <div class="prose">
+                <p>When I'm not working on autonomous vehicles, I'm happily spending time with our playful Golden Retriever, <strong>Max</strong>.</p>
+                <p>I enjoy building open-source tools for the AV community and advancing safe and trustworthy AI-driven transportation systems. <strong class="terps-proud">Proud to be a Terp.</strong></p>
+              </div>
+              <div class="personal-links">
+                <a href="mailto:dwchen98@umd.edu">✉ Email</a>
+                <a href="https://scholar.google.com/citations?user=0EVALfUAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+                <a href="https://github.com/DianweiCHEN" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://www.linkedin.com/in/dianwei-chen-513092185/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
