@@ -33,6 +33,14 @@
     });
   }
 
+  document.querySelectorAll('.nav-inline[data-tab]').forEach(function (el) {
+    el.addEventListener('click', function (e) {
+      e.preventDefault();
+      var tab = el.getAttribute('data-tab');
+      if (tab) setActiveTab(tab);
+    });
+  });
+
   setActiveTab('home');
 
   /* ---------- Count-up animation for stat cards ---------- */
@@ -69,7 +77,7 @@
       });
     }, { threshold: 0.08 });
 
-    document.querySelectorAll('.pub-item, .service-list li, .tag-list li').forEach(function (el) {
+    document.querySelectorAll('.pub-item, .service-list li, .tag-list li, .timeline-item, .news-item').forEach(function (el) {
       el.style.opacity = '0';
       el.style.transform = 'translateY(14px)';
       el.style.transition = 'opacity 0.45s ease, transform 0.45s ease';
