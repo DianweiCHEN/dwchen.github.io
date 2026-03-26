@@ -98,15 +98,17 @@
     });
   });
 
-  /* ---------- Page view counter (CountAPI) ---------- */
+  /* ---------- Page view counter (localStorage-based) ---------- */
   var viewEl = document.getElementById('page-view-count');
   if (viewEl) {
-    fetch('https://api.countapi.xyz/hit/dianweichen.github.io/home')
-      .then(function (r) { return r.json(); })
-      .then(function (d) {
-        if (d && typeof d.value === 'number') viewEl.textContent = d.value.toLocaleString();
-      })
-      .catch(function () { viewEl.textContent = '—'; });
+    try {
+      var key = 'dianweichen_page_views';
+      var count = parseInt(localStorage.getItem(key) || '0', 10) + 1;
+      localStorage.setItem(key, count);
+      viewEl.textContent = count.toLocaleString();
+    } catch (e) {
+      viewEl.textContent = '—';
+    }
   }
 
   /* ---------- Rotating research tips ---------- */
@@ -128,6 +130,29 @@
     showTip();
     setInterval(showTip, 6000);
   }
+
+  /* ---------- Typewriter effect on hero tagline ---------- */
+  var taglineEl = document.querySelector('.hero-tagline');
+  if (taglineEl) {
+    var fullText = taglineEl.textContent;
+    taglineEl.textContent = '';
+    taglineEl.style.borderRight = '2px solid var(--umd-red)';
+    var charIdx = 0;
+    function typeChar() {
+      if (charIdx < fullText.length) {
+        taglineEl.textContent += fullText.charAt(charIdx);
+        charIdx++;
+        setTimeout(typeChar, 28);
+      } else {
+        setTimeout(function () { taglineEl.style.borderRight = 'none'; }, 1200);
+      }
+    }
+    typeChar();
+  }
+
+  /* ---------- Footer year ---------- */
+  var yearEl = document.getElementById('footer-year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   /* ---------- Local time (College Park, MD) ---------- */
   var timeEl = document.getElementById('local-time');
