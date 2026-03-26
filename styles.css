@@ -715,68 +715,108 @@ a, button, [role="button"], .nav-link, .icon-link, .tag-list li, .nav-inline {
   transform: translateY(-50%) scale(1.3);
 }
 
-/* ---------- Featured work list ---------- */
-.featured-grid {
+/* ---------- Featured work grid ---------- */
+.content-block--featured h2 {
   display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.content-block--featured .featured-grid {
+  clear: both;
+  width: 100%;
+}
+.featured-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media (min-width: 520px) {
+  .featured-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 700px) {
+  .featured-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 .featured-card {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: auto auto;
-  column-gap: 1rem;
-  row-gap: 0.25rem;
-  align-items: start;
-  padding: 1.15rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.55rem;
+  min-height: 100%;
+  min-width: 0;
+  padding: 1.1rem 1.15rem 1rem;
+  padding-top: 1.35rem;
   border-radius: var(--radius-sm);
-  border: 1px solid var(--border);
-  border-left: 4px solid rgba(226,24,51,.25);
-  background: linear-gradient(90deg, rgba(255,255,255,.75), rgba(255,255,255,.45));
+  border: 1px solid rgba(0,0,0,.08);
+  background: rgba(255,255,255,.92);
   text-decoration: none;
   color: inherit;
-  transition: transform var(--t-mid), box-shadow var(--t-mid), border-left-color var(--t-fast);
+  transition: transform var(--t-mid), box-shadow var(--t-mid), border-color var(--t-fast);
   position: relative;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+}
+.featured-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  background: linear-gradient(90deg, var(--umd-red), var(--umd-gold));
 }
 .featured-card:hover {
-  transform: translateX(4px);
-  box-shadow: 0 6px 24px rgba(226,24,51,.14);
-  border-left-color: var(--umd-red);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 36px rgba(226,24,51,.14);
+  border-color: rgba(226,24,51,.22);
 }
 .featured-tag {
-  grid-row: 1 / 3;
-  align-self: center;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 72px;
+  display: inline-block;
   font-size: 0.65rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  text-align: center;
   color: var(--av-cyan);
   background: var(--av-cyan-soft);
-  padding: 0.3rem 0.65rem;
+  padding: 0.25rem 0.65rem;
   border-radius: 999px;
-  white-space: nowrap;
-  transition: color var(--t-fast), background var(--t-fast);
-}
-.featured-card:hover .featured-tag {
-  color: var(--umd-white);
-  background: var(--av-cyan);
+  align-self: flex-start;
+  flex-shrink: 0;
 }
 .featured-title {
+  display: block;
   font-family: var(--font-display);
-  font-size: 0.97rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--text);
-  line-height: 1.4;
+  line-height: 1.3;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 .featured-desc {
-  font-size: 0.85rem;
-  line-height: 1.5;
+  display: block;
+  flex: 1 1 auto;
+  font-size: 0.86rem;
+  line-height: 1.55;
   color: var(--text-muted);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+.featured-cta {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--umd-red);
+  flex-shrink: 0;
+}
+.featured-card:hover .featured-cta {
+  color: var(--umd-red-dk);
 }
 
 /* ---------- Home: Timeline ---------- */
@@ -1405,8 +1445,6 @@ a.nav-inline:hover { color: var(--umd-red-dk); }
     padding: 1.1rem;
   }
   .news-date { font-size: 0.8rem; }
-  .featured-card { grid-template-columns: 1fr; }
-  .featured-tag { align-self: flex-start; grid-row: auto; margin-bottom: 0.25rem; }
   .timeline { padding-left: 0.25rem; }
   .timeline::before { left: 0.5rem; }
   .timeline-item { padding-left: 2rem; }
